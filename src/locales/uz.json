@@ -1,0 +1,400 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "catalog": "Katalog",
+    "blog": "Blog",
+    "about": "Kompaniya haqida",
+    "contacts": "Kontaktlar"
+  },
+  "hero": {
+    "title": "Zamonaviy iqlim uskunalari",
+    "subtitle": "Har bir uyda qulaylik yaratamiz",
+    "cta": "Katalogni ko'rish"
+  },
+  "categories": {
+    "title": "Mahsulot kategoriyalari",
+    "viewAll": "Barchasini ko'rish",
+    "descriptions": {
+      "airConditioners": "Split-tizimlar va multi-split tizimlar",
+      "airPurifiers": "Tozalagichlar va namlovchilar",
+      "boilers": "Isitish qozonlari",
+      "dehumidifiers": "Xonalar uchun namlovchilar",
+      "heatCurtains": "Havoviy va issiqlik pardalari"
+    }
+  },
+  "advantages": {
+    "title": "Nima uchun Welkin va Midea tanlanadi",
+    "subtitle": "Iqlim uskunalari sohasidagi ikki yetakchi brend, sifat va innovatsiyalar bilan birlashtirilgan",
+    "quality": {
+      "title": "Sifat",
+      "description": "Biz sifat masalasiga juda mas'uliyatli yondashamiz, shuning uchun «Welkin» kompaniyasining barcha mahsulotlari ekologik toza va xavfsiz materiallardan tayyorlangan."
+    },
+    "punctuality": {
+      "title": "Punktuallik",
+      "description": "Bizda hamma narsa o'z vaqtida! Yetkazib berishdan tortib xizmat markazi xizmatlarigacha."
+    },
+    "service-guarantee": {
+      "title": "Xizmat kafolati",
+      "description": "Biz doimo 24/7 aloqadamiz va sizga har qanday savol bo'yicha maslahat berishga tayyormiz. Murojaat qiling!"
+    },
+    "professionalism": {
+      "title": "Professionalizm",
+      "description": "Bizda o'z ishini biladigan va to'g'ri uskuna tanlash va maslahat berishni biladigan odamlar ishlaydi."
+    },
+    "payment": {
+      "title": "Barcha to'lov usullari",
+      "description": "Naqd pul, Terminal, O'tkazma, Click, Payme va boshqalar!"
+    },
+    "money-back": {
+      "title": "Pulni qaytarish kafolati",
+      "description": "Agar qandaydir sabablarga ko'ra bizdan norozi bo'lsangiz – biz sizga pulingizni qaytaramiz. Ortiqcha so'z va savolsiz."
+    },
+    "delivery": {
+      "title": "Tezkor yetkazib berish",
+      "description": "Butun mintaqa bo'ylab eng qisqa muddatlarda yetkazib berishni tashkil qilamiz. Qulay va ishonchli."
+    },
+    "installation": {
+      "title": "Professional o'rnatish",
+      "description": "Bizning mutaxassislarimiz uskunani tez, sifatli va ishlar uchun kafolat bilan o'rnatadilar."
+    }
+  },
+  "products": {
+    "title": "Mashhur mahsulotlar",
+    "viewAll": "Barchasini ko'rish",
+    "buy": "Buyurtma berish",
+    "details": "Batafsil",
+    "expand": "Yoyish",
+    "collapse": "Yig'ish"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Ko'proq o'qish",
+    "allPosts": "Barcha maqolalar"
+  },
+  "footer": {
+    "about": "Kompaniya haqida",
+    "catalog": "Katalog",
+    "blog": "Blog",
+    "contacts": "Kontaktlar",
+    "rights": "Barcha huquqlar himoyalangan"
+  },
+  "product": {
+    "specifications": "Xususiyatlar",
+    "description": "Tavsif",
+    "related": "O'xshash mahsulotlar"
+  },
+  "about": {
+    "title": "Welkin kompaniyasi haqida",
+    "mission": "Bizning missiyamiz",
+    "values": "Qadriyatlar"
+  },
+  "contacts": {
+    "title": "Kontaktlar",
+    "subtitle": "Biz bilan qulay usul bilan bog'laning",
+    "address": "Manzil",
+    "phone": "Telefon",
+    "email": "Email",
+    "hours": "Ish vaqti",
+    "hoursValue": "Dush-Juma: 9:00 - 18:00\nShanba: 10:00 - 16:00\nYakshanba: Dam olish",
+    "addressValue": "Toshkent sh., Namuna ko'chasi, 123",
+    "phoneValue": "+998 90 123 45 67",
+    "emailValue": "info@welkin.uz",
+    "form": {
+      "title": "Xabar yuborish",
+      "name": "Ism",
+      "namePlaceholder": "Ismingizni kiriting",
+      "phone": "Telefon raqami",
+      "phonePlaceholder": "+998 90 123 45 67",
+      "message": "Xabar",
+      "messageOptional": "(ixtiyoriy)",
+      "messagePlaceholder": "Savolingiz yoki so'rovingizni tasvirlab bering...",
+      "submit": "Yuborish",
+      "submitting": "Yuborilmoqda...",
+      "success": "Xabaringiz uchun rahmat! Tez orada siz bilan bog'lanamiz.",
+      "error": "Xabar yuborishda xatolik yuz berdi. Iltimos, keyinroq qayta urinib ko'ring."
+    },
+    "validation": {
+      "nameMin": "Ism kamida 2 ta belgidan iborat bo'lishi kerak",
+      "phoneMin": "Telefon raqami kamida 9 ta raqamdan iborat bo'lishi kerak",
+      "phoneMax": "Telefon raqami juda uzun"
+    }
+  },
+  "catalog": {
+    "subtitle": "Uy va ofis uchun keng assortimentdagi iqlim uskunalari",
+    "filters": "Filtrlash",
+    "active": "Faol:",
+    "modal": {
+      "title": "Filtrlash",
+      "brand": "Brend",
+      "allBrands": "Barcha brendlar",
+      "category": "Mahsulot kategoriyasi",
+      "allCategories": "Barcha kategoriyalar",
+      "power": "Quvvat",
+      "type": "Turi",
+      "price": "Narx",
+      "size": "O'lcham",
+      "color": "Rang",
+      "colors": {
+        "white": "Oq",
+        "steel": "Po'lat",
+        "black": "Qora"
+      },
+      "reset": "Tozalash",
+      "apply": "Qo'llash",
+      "powerUnit": "kVt",
+      "priceUnit": "so'm"
+    },
+    "categories": {
+      "airConditioners": "Konditsionerlar",
+      "airPurifiers": "Havo tozalagichlar",
+      "boilers": "Qozonlar",
+      "dehumidifiers": "Havo namlovchilar",
+      "heatCurtains": "Issiqlik pardalari"
+    },
+    "sort": {
+      "popular": "Mashhur",
+      "priceAsc": "Narx: o'sish bo'yicha",
+      "priceDesc": "Narx: kamayish bo'yicha",
+      "powerAsc": "Quvvat: o'sish bo'yicha",
+      "powerDesc": "Quvvat: kamayish bo'yicha"
+    }
+  },
+  "hero": {
+    "title": "Zamonaviy iqlim uskunalari",
+    "subtitle": "Har bir uyda qulaylik yaratamiz",
+    "cta": "Katalogni ko'rish",
+    "slide2": {
+      "title": "Energiya samarador yechimlar",
+      "subtitle": "Elektr energiyasi xarajatlarini 40% gacha kamaytiramiz"
+    },
+    "slide3": {
+      "title": "Aqlli iqlim nazorati",
+      "subtitle": "Avtomatlashtirish va qulaylik bitta yechimda"
+    }
+  },
+  "product": {
+    "specifications": "Xususiyatlar",
+    "description": "Tavsif",
+    "related": "O'xshash mahsulotlar",
+    "backToCatalog": "Katalogga qaytish",
+    "brand": "Brend",
+    "category": "Kategoriya",
+    "noSpecifications": "Xususiyatlar keyinroq qo'shiladi",
+    "noRelated": "O'xshash mahsulotlar mavjud emas",
+    "notFound": "Mahsulot topilmadi",
+    "noPower": "Ko'rsatilmagan"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Iqlim uskunalari, tanlash va foydalanish bo'yicha foydali maqolalar va maslahatlar",
+    "readMore": "Ko'proq o'qish",
+    "allPosts": "Barcha maqolalar",
+    "backToBlog": "Blogga qaytish"
+  },
+  "about": {
+    "title": "Welkin kompaniyasi haqida",
+    "subtitle": "Mintaqadagi yetakchi iqlim uskunalari yetkazib beruvchisi",
+    "description1": "Welkin - bu iqlim uskunalari sohasida ko'p yillik tajribaga ega kompaniya. Biz dunyoning yetakchi ishlab chiqaruvchilarining sifatli mahsulotlarining keng assortimentini taklif qilamiz.",
+    "description2": "Bizning missiyamiz - zamonaviy texnologiyalar va har bir loyihaga professional yondashuvdan foydalangan holda har bir uy va ofisda qulay iqlim yaratish.",
+    "mission": "Bizning missiyamiz",
+    "missionText": "Sifat, innovatsiyalar va qulaylikni birlashtirib, mijozlarga ideal mikroklimat yaratish uchun eng yaxshi yechimlarni taqdim etish.",
+    "values": "Qadriyatlar",
+    "value1": "Sifat va ishonchlilik",
+    "value2": "Professional xizmat",
+    "value3": "Halollik va shaffoflik",
+    "value4": "Innovatsiyalar va texnologiyalar",
+    "ctaTitle": "Hamkorlikni boshlashga tayyormisiz?",
+    "ctaText": "Maslahat va uskuna tanlash uchun biz bilan bog'laning",
+    "ctaButton": "Biz bilan bog'lanish"
+  },
+  "home": {
+    "cta": {
+      "title": "Ideal iqlim yaratishga tayyormisiz?",
+      "text": "Maslahat va uskuna tanlash uchun biz bilan bog'laning",
+      "button": "Biz bilan bog'lanish"
+    }
+  },
+  "products": {
+    "details": "Batafsil",
+    "items": {
+      "apollon": {
+        "name": "Apollon",
+        "description": "Zamonaviy energiya tejash texnologiyalari bilan inverter konditsioner"
+      },
+      "ataman": {
+        "name": "Ataman",
+        "description": "Xonada qulay iqlim uchun ishonchli split-tizim"
+      },
+      "epic": {
+        "name": "Epic",
+        "description": "Kengaytirilgan boshqaruv funksiyalari bilan premium konditsioner"
+      },
+      "general": {
+        "name": "General",
+        "description": "Uy va ofis uchun universal split-tizim"
+      },
+      "novus": {
+        "name": "Novus",
+        "description": "Aqlli boshqaruv bilan innovatsion konditsioner"
+      },
+      "nuar": {
+        "name": "Nuar",
+        "description": "Zamonaviy dizayn va yuqori energiya samaradorligi ko'rsatkichlari"
+      },
+      "sirius": {
+        "name": "Sirius",
+        "description": "Katta xonalar uchun kuchli split-tizim"
+      },
+      "vavilon": {
+        "name": "Vavilon",
+        "description": "Jimgir bo'lmagan ishlash bilan ixcham konditsioner"
+      },
+      "zizoo": {
+        "name": "Zizoo",
+        "description": "Wi-Fi boshqaruvi bilan zamonaviy konditsioner"
+      },
+      "sheikh": {
+        "name": "Sheikh",
+        "description": "Zamonaviy inverter konditsioner ilg'or texnologiyalar bilan"
+      },
+      "aura": {
+        "name": "Aura",
+        "description": "Yuqori samaradorlik ko'rsatkichlari bilan zamonaviy konditsioner"
+      },
+      "diana": {
+        "name": "Diana",
+        "description": "Shaxsiy uyni isitish uchun samarali gaz qozoni"
+      },
+      "magnus": {
+        "name": "Magnus",
+        "description": "Avtomatik boshqaruv tizimi bilan kuchli qozon"
+      },
+      "milana": {
+        "name": "Milana",
+        "description": "Yuqori samaradorlik bilan iqtisodiy qozon"
+      },
+      "zavesaSilver": {
+        "name": "Storm White/Silver",
+        "description": "Eshiklar teshiklarida shamol oqimlaridan himoya qilish uchun issiqlik pardasi"
+      },
+      "k08a": {
+        "name": "K08A",
+        "description": "Ko'p bosqichli filtr tizimi va anion tozalagichga ega havo tozalagich"
+      },
+      "k08e": {
+        "name": "K08E",
+        "description": "Smartfon va Yandex Alisa orqali boshqarishni qo'llab-quvvatlovchi 2-1 kuchli havo tozalagich-namlagich"
+      },
+      "djdd1601e": {
+        "name": "DJDD-1601E",
+        "description": "Kuniga 160 l ishlash qobiliyatiga ega shiftli havo quritgichi"
+      },
+      "evdh80": {
+        "name": "EV-DH80",
+        "description": "Kuniga 192 l ishlash qobiliyatiga ega va 4300 Vt issiqlik ishlab chiqarish quvvatiga ega havo quritgichi"
+      },
+      "cl158h": {
+        "name": "CL-158H",
+        "description": "Kuniga 158 l ishlash qobiliyatiga ega va soatiga 1300 m³ havo aylanishiga ega havo quritgichi"
+      },
+      "dh8168c2": {
+        "name": "DH-8168C-2",
+        "description": "Kuniga 168 l ishlash qobiliyatiga ega va avtomatik muzlashdan himoya qilish funksiyasiga ega havo quritgichi"
+      },
+      "cfz68kj": {
+        "name": "CFZ6.8KJ",
+        "description": "90–120 m² xonalar uchun kuniga 163 l ishlash qobiliyatiga ega havo quritgichi"
+      },
+      "aep": {
+        "name": "All Easy Pro AI",
+        "description": "Inverter texnologiyasi bilan Midea energiya samarador konditsioner"
+      },
+      "alba": {
+        "name": "Alba",
+        "description": "Zamonaviy interyer uchun Midea uslubidagi konditsioner"
+      },
+      "brabus": {
+        "name": "Brabus",
+        "description": "Kengaytirilgan funksionallik bilan Midea premium konditsioner"
+      },
+      "breezeless": {
+        "name": "Breezeless",
+        "description": "Shamol oqimlari bo'lmagan texnologiya bilan Midea konditsioner"
+      },
+      "gaia": {
+        "name": "Gaia",
+        "description": "Past energiya iste'moli bilan Midea ekologik konditsioner"
+      },
+      "lotus": {
+        "name": "Lotus",
+        "description": "Jimgir bo'lmagan ishlash bilan Midea uslubidagi konditsioner"
+      },
+      "naomi": {
+        "name": "Naomi",
+        "description": "Kichik xonalar uchun Midea ixcham konditsioner"
+      },
+      "ultraviolet": {
+        "name": "Ultraviolet",
+        "description": "Ultraviyole nurlar bilan havo tozalash funksiyasi bilan Midea konditsioner"
+      },
+      "vertuPlus": {
+        "name": "Vertu Plus",
+        "description": "Aqlli boshqaruv bilan Midea ilg'or konditsioner"
+      },
+      "nova": {
+        "name": "Nova",
+        "description": "Inverter texnologiyasi bilan zamonaviy Midea konditsioner"
+      },
+      "nordic": {
+        "name": "Nordic",
+        "description": "Qulay iqlim uchun energiya samarali Midea konditsioner"
+      }
+    },
+    "badge": {
+      "new": "Yangi"
+    },
+    "priceFrom": "dan"
+  },
+  "blog": {
+    "posts": {
+      "howToChooseAc": {
+        "title": "Uy uchun konditsioner qanday tanlash kerak",
+        "excerpt": "Maydon va xona xususiyatlarini hisobga olgan holda optimal split-tizimni tanlash bo'yicha qo'llanma.",
+        "category": "Maslahatlar"
+      },
+      "energySavingTips": {
+        "title": "Iqlim tizimlarida energiya tejash",
+        "excerpt": "Energiya iste'molini kamaytirish va kommunal xizmatlar bo'yicha tejash bo'yicha amaliy maslahatlar.",
+        "category": "Energiya samaradorligi"
+      },
+      "smartHomeClimate": {
+        "title": "Aqlli uy: iqlim avtomatlashtirish",
+        "excerpt": "Maksimal qulaylik uchun aqlli uy tizimiga iqlim uskunalarini integratsiya qilish.",
+        "category": "Texnologiyalar"
+      },
+      "ventilationBasics": {
+        "title": "Shaxsiy uyda ventilyatsiya asoslari",
+        "excerpt": "Shaxsiy uy qurish va ta'mirlashda ventilyatsiya haqida bilish kerak bo'lgan narsalar.",
+        "category": "Maslahatlar"
+      },
+      "winterHeating": {
+        "title": "Isitish tizimini qishga tayyorlash",
+        "excerpt": "Sovuq mavsumdan oldin isitish uskunalarini tekshirish va xizmat ko'rsatish.",
+        "category": "Xizmat ko'rsatish"
+      },
+      "airQuality": {
+        "title": "Xonadagi havo sifati",
+        "excerpt": "Havo tozalagichlar va namlovchilar sog'liq va qulaylikka qanday ta'sir qiladi.",
+        "category": "Sog'liq"
+      }
+    },
+    "categories": {
+      "tips": "Maslahatlar",
+      "energyEfficiency": "Energiya samaradorligi",
+      "technologies": "Texnologiyalar",
+      "maintenance": "Xizmat ko'rsatish",
+      "health": "Sog'liq"
+    }
+  }
+}
+

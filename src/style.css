@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply transition-colors duration-200;
+  }
+
+  body {
+    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+    @apply font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-xl font-semibold transition-all duration-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-brand-yellow text-brand-gray hover:bg-brand-yellow-dark;
+    @apply focus:ring-brand-yellow shadow-medium hover:shadow-large;
+  }
+
+  .btn-secondary {
+    @apply bg-brand-gray text-white hover:bg-brand-gray-light;
+    @apply focus:ring-brand-gray shadow-medium hover:shadow-large;
+  }
+
+  .btn-outline {
+    @apply border-2 border-brand-yellow text-brand-yellow hover:bg-brand-yellow hover:text-brand-gray;
+    @apply focus:ring-brand-yellow;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-soft hover:shadow-medium;
+    @apply transition-all duration-300;
+  }
+
+  /* Standard product image container for cards - fixed size with padding for consistency */
+  .product-image-container {
+    @apply w-full h-full max-w-[150px] max-h-[150px] flex items-center justify-center flex-shrink-0;
+    @apply box-border;
+    @apply mx-auto;
+  }
+
+  /* Standard product image for cards - strictly contained within container with equal sizing */
+  .product-image {
+    @apply max-w-full max-h-full w-auto h-auto object-contain;
+    @apply block;
+    @apply mx-auto;
+    image-orientation: 0deg;
+    transform: none !important;
+    -webkit-transform: none !important;
+    -webkit-image-orientation: 0deg;
+  }
+
+  /* Standard product image container for product page - with padding for consistency */
+  .product-page-image-container {
+    @apply flex items-center justify-center w-full h-full;
+    @apply max-w-[450px] max-h-[450px];
+  }
+
+  /* Standard product image for product page - equal sizing like cards */
+  .product-page-image {
+    @apply max-w-full max-h-full w-auto h-auto object-contain;
+    @apply block;
+    @apply mx-auto;
+  }
+
+  .section-wrapper {
+    @apply max-w-screen-xl mx-auto px-4 py-12 md:py-16 lg:py-20;
+  }
+
+  .glass-effect {
+    @apply bg-white/50 dark:bg-white/25;
+    @apply backdrop-blur-2xl;
+    @apply border border-white/60 dark:border-white/35;
+    @apply shadow-2xl;
+    @apply transition-all duration-300;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15), 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-effect::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl;
+    @apply bg-gradient-to-br from-white/30 via-white/10 to-transparent;
+    @apply pointer-events-none;
+    @apply opacity-60;
+  }
+}
+
+/* Modal Transitions */
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+/* Dropdown Transitions */
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all 0.2s ease;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Specifications Accordion Transitions */
+.specifications-enter-active,
+.specifications-leave-active {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.specifications-enter-from,
+.specifications-leave-to {
+  opacity: 0;
+  max-height: 0;
+  margin-top: 0;
+}
+
+.specifications-enter-to,
+.specifications-leave-from {
+  opacity: 1;
+  max-height: 1000px;
+}
+
+/* Power Dropdown Transitions */
+.power-dropdown-enter-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.power-dropdown-leave-active {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.power-dropdown-enter-from {
+  opacity: 0;
+  transform: translateY(-10px);
+  max-height: 0;
+}
+
+.power-dropdown-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+}
+
+.power-dropdown-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+}
+
+.power-dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+  max-height: 0;
+}
+
+/* Custom Checkbox Styles */
+.custom-checkbox {
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.custom-checkbox:checked {
+  background-color: #FEC300;
+  border-color: #FEC300;
+  box-shadow: 0 2px 8px rgba(254, 195, 0, 0.4), 0 0 0 3px rgba(254, 195, 0, 0.1);
+}
+
+.custom-checkbox:checked::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FEC300 0%, #FFD700 100%);
+  border-radius: 0.375rem;
+  animation: checkmark 0.3s ease;
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.custom-checkbox:hover:not(:checked) {
+  border-color: #FEC300;
+  background-color: rgba(254, 195, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(254, 195, 0, 0.15);
+  transform: scale(1.05);
+}
+
+.custom-checkbox:active:not(:checked) {
+  transform: scale(0.95);
+}
+
+.dark .custom-checkbox {
+  background-color: #374151;
+  border-color: #4B5563;
+}
+
+.dark .custom-checkbox:hover:not(:checked) {
+  background-color: #4B5563;
+  border-color: #FEC300;
+}
+
+/* Range Slider Styles */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FEC300;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(254, 195, 0, 0.4);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FEC300;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(254, 195, 0, 0.4);
+}
+
+.dark .slider::-webkit-slider-thumb {
+  border-color: #1f2937;
+}
+
+.dark .slider::-moz-range-thumb {
+  border-color: #1f2937;
+}
+
