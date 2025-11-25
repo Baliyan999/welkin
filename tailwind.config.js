@@ -7,6 +7,11 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        'tablet': '860px',
+        'desktop': '1025px',
+        'blog-lg': '1100px',
+      },
       colors: {
         brand: {
           yellow: '#FFD700',

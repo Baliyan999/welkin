@@ -2,10 +2,10 @@
   <div class="relative">
     <button
       @click="dropdownOpen = !dropdownOpen"
-      class="relative p-2 md:px-3 md:py-2 rounded-xl transition-all duration-300 flex items-center gap-1.5 md:gap-2"
+      class="relative p-1.5 md:px-2.5 md:py-1.5 desktop:px-3 desktop:py-2 rounded-xl transition-all duration-300 flex items-center gap-1 md:gap-1.5 desktop:gap-2"
       :class="{
-        'text-brand-gray dark:text-white': dropdownOpen,
-        'text-gray-700 dark:text-gray-300 hover:text-brand-yellow dark:hover:text-brand-yellow': !dropdownOpen
+        'text-white': dropdownOpen,
+        'text-gray-300 hover:text-brand-yellow': !dropdownOpen
       }"
       aria-label="Change language"
     >
@@ -13,11 +13,11 @@
         v-if="dropdownOpen"
         class="glass-effect absolute inset-0 rounded-xl"
       />
-      <span class="relative z-10 text-xs md:text-sm font-medium">
+      <span class="relative z-10 text-xs md:text-sm desktop:text-base font-medium">
         {{ currentLocale.toUpperCase() }}
       </span>
       <svg
-        class="w-3 h-3 md:w-4 md:h-4 transition-transform duration-300 relative z-10"
+        class="w-3 h-3 md:w-3.5 md:h-3.5 desktop:w-4 desktop:h-4 transition-transform duration-300 relative z-10"
         :class="{ 'rotate-180': dropdownOpen }"
         fill="none"
         stroke="currentColor"
@@ -38,8 +38,8 @@
         @click="changeLocale(locale.code)"
         class="w-full px-4 py-2.5 rounded-xl text-sm hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200 flex items-center justify-between"
         :class="{
-          'text-brand-gray dark:text-white bg-white/10': currentLocale === locale.code,
-          'text-gray-700 dark:text-gray-300': currentLocale !== locale.code
+          'text-white bg-white/10': currentLocale === locale.code,
+          'text-gray-300': currentLocale !== locale.code
         }"
       >
         <span>{{ locale.name }}</span>

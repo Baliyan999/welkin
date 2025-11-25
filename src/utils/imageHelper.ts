@@ -28,7 +28,7 @@ export function getBlogImage(slug: string): string {
  * Получить изображение hero слайдера
  */
 export function getHeroImage(name: string): string {
-  return `/images/hero/${name}.jpg`
+  return `/images/hero/${name}.png`
 }
 
 /**
@@ -36,5 +36,13 @@ export function getHeroImage(name: string): string {
  */
 export function getLogo(name: string = 'logo'): string {
   return `/images/logo/${name}.svg`
+}
+
+/**
+ * Получить изображение категории
+ * @param slug - slug категории ('air-conditioners' | 'dehumidifiers' | 'heat-curtains' | 'boilers' | 'air-purifiers')
+ */
+export function getCategoryImage(slug: string): string {
+  return `/images/categories/${slug}.png`
 }
 

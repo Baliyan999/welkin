@@ -12,7 +12,7 @@
     "cta": "Katalogni ko'rish"
   },
   "categories": {
-    "title": "Mahsulot kategoriyalari",
+    "title": "Mahsulotlar katalogi",
     "viewAll": "Barchasini ko'rish",
     "descriptions": {
       "airConditioners": "Split-tizimlar va multi-split tizimlar",
@@ -57,19 +57,6 @@
       "title": "Professional o'rnatish",
       "description": "Bizning mutaxassislarimiz uskunani tez, sifatli va ishlar uchun kafolat bilan o'rnatadilar."
     }
-  },
-  "products": {
-    "title": "Mashhur mahsulotlar",
-    "viewAll": "Barchasini ko'rish",
-    "buy": "Buyurtma berish",
-    "details": "Batafsil",
-    "expand": "Yoyish",
-    "collapse": "Yig'ish"
-  },
-  "blog": {
-    "title": "Blog",
-    "readMore": "Ko'proq o'qish",
-    "allPosts": "Barcha maqolalar"
   },
   "footer": {
     "about": "Kompaniya haqida",
@@ -146,10 +133,10 @@
     },
     "categories": {
       "airConditioners": "Konditsionerlar",
-      "airPurifiers": "Havo tozalagichlar",
-      "boilers": "Qozonlar",
+      "airPurifiers": "Havo tozalagich/Namlovchi",
+      "boilers": "Gaz qozoni",
       "dehumidifiers": "Havo namlovchilar",
-      "heatCurtains": "Issiqlik pardalari"
+      "heatCurtains": "Havo/Issiqlik pardalari"
     },
     "sort": {
       "popular": "Mashhur",
@@ -159,54 +146,6 @@
       "powerDesc": "Quvvat: kamayish bo'yicha"
     }
   },
-  "hero": {
-    "title": "Zamonaviy iqlim uskunalari",
-    "subtitle": "Har bir uyda qulaylik yaratamiz",
-    "cta": "Katalogni ko'rish",
-    "slide2": {
-      "title": "Energiya samarador yechimlar",
-      "subtitle": "Elektr energiyasi xarajatlarini 40% gacha kamaytiramiz"
-    },
-    "slide3": {
-      "title": "Aqlli iqlim nazorati",
-      "subtitle": "Avtomatlashtirish va qulaylik bitta yechimda"
-    }
-  },
-  "product": {
-    "specifications": "Xususiyatlar",
-    "description": "Tavsif",
-    "related": "O'xshash mahsulotlar",
-    "backToCatalog": "Katalogga qaytish",
-    "brand": "Brend",
-    "category": "Kategoriya",
-    "noSpecifications": "Xususiyatlar keyinroq qo'shiladi",
-    "noRelated": "O'xshash mahsulotlar mavjud emas",
-    "notFound": "Mahsulot topilmadi",
-    "noPower": "Ko'rsatilmagan"
-  },
-  "blog": {
-    "title": "Blog",
-    "subtitle": "Iqlim uskunalari, tanlash va foydalanish bo'yicha foydali maqolalar va maslahatlar",
-    "readMore": "Ko'proq o'qish",
-    "allPosts": "Barcha maqolalar",
-    "backToBlog": "Blogga qaytish"
-  },
-  "about": {
-    "title": "Welkin kompaniyasi haqida",
-    "subtitle": "Mintaqadagi yetakchi iqlim uskunalari yetkazib beruvchisi",
-    "description1": "Welkin - bu iqlim uskunalari sohasida ko'p yillik tajribaga ega kompaniya. Biz dunyoning yetakchi ishlab chiqaruvchilarining sifatli mahsulotlarining keng assortimentini taklif qilamiz.",
-    "description2": "Bizning missiyamiz - zamonaviy texnologiyalar va har bir loyihaga professional yondashuvdan foydalangan holda har bir uy va ofisda qulay iqlim yaratish.",
-    "mission": "Bizning missiyamiz",
-    "missionText": "Sifat, innovatsiyalar va qulaylikni birlashtirib, mijozlarga ideal mikroklimat yaratish uchun eng yaxshi yechimlarni taqdim etish.",
-    "values": "Qadriyatlar",
-    "value1": "Sifat va ishonchlilik",
-    "value2": "Professional xizmat",
-    "value3": "Halollik va shaffoflik",
-    "value4": "Innovatsiyalar va texnologiyalar",
-    "ctaTitle": "Hamkorlikni boshlashga tayyormisiz?",
-    "ctaText": "Maslahat va uskuna tanlash uchun biz bilan bog'laning",
-    "ctaButton": "Biz bilan bog'lanish"
-  },
   "home": {
     "cta": {
       "title": "Ideal iqlim yaratishga tayyormisiz?",
@@ -215,7 +154,12 @@
     }
   },
   "products": {
+    "title": "Mashhur mahsulotlar",
+    "viewAll": "Barchasini ko'rish",
+    "buy": "Buyurtma berish",
     "details": "Batafsil",
+    "expand": "Yoyish",
+    "collapse": "Yig'ish",
     "items": {
       "apollon": {
         "name": "Apollon",
@@ -356,6 +300,25 @@
     "priceFrom": "dan"
   },
   "blog": {
+    "title": "Blog",
+    "subtitle": "Iqlim uskunalari, tanlash va foydalanish bo'yicha foydali maqolalar",
+    "readMore": "Batafsil o'qish",
+    "allPosts": "Barcha maqolalar",
+    "backToBlog": "Blogga qaytish",
+    "allCategories": "Barcha kategoriyalar",
+    "searchPlaceholder": "Maqolalarni qidirish...",
+    "noPosts": "Maqolalar topilmadi",
+    "tryDifferentFilters": "Filtrlarni yoki qidiruv so'rovini o'zgartirib ko'ring",
+    "share": "Maqolani baham ko'rish",
+    "copyLink": "Havolani nusxalash",
+    "linkCopied": "Havola nusxalandi!",
+    "relatedPosts": "O'xshash maqolalar",
+    "postNotFound": "Maqola topilmadi",
+    "social": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "telegram": "Telegram"
+    },
     "posts": {
       "howToChooseAc": {
         "title": "Uy uchun konditsioner qanday tanlash kerak",
@@ -395,6 +358,18 @@
       "maintenance": "Xizmat ko'rsatish",
       "health": "Sog'liq"
     }
+  },
+  "search": {
+    "placeholder": "Mahsulotlarni qidirish...",
+    "searching": "Qidirilmoqda...",
+    "noResults": "Hech narsa topilmadi",
+    "products": "Mahsulotlar",
+    "categories": "Kategoriyalar",
+    "moreProducts": "va yana {count} ta mahsulot",
+    "viewAll": "Barcha natijalarni ko'rsatish",
+    "resultsFor": "Qidiruv natijalari: {query}",
+    "foundResults": "Topilgan mahsulotlar: {count}",
+    "startTyping": "Qidirish uchun so'rov kiriting"
   }
 }
 

@@ -3,12 +3,12 @@
     <Header />
     <main class="flex-grow">
       <SectionWrapper>
-        <h1 class="text-center mb-4" v-motion-slide-up>
-          {{ $t('nav.catalog') }}
-        </h1>
-        <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-          {{ $t('catalog.subtitle') }}
-        </p>
+            <h1 class="text-center mb-4" v-motion-slide-up>
+              {{ route.query.search ? $t('search.resultsFor', { query: route.query.search }) : $t('nav.catalog') }}
+            </h1>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+              {{ route.query.search ? $t('search.foundResults', { count: filteredProducts.length }) : $t('catalog.subtitle') }}
+            </p>
 
         <!-- Filter Buttons (shown only when category is selected or filters are active) -->
         <div v-if="hasActiveFilters || filters.category" class="mb-8 flex items-center gap-4 flex-wrap">
@@ -225,6 +225,57 @@
                     </Transition>
                   </div>
 
+                  <!-- Power KW Filter (only for boilers) -->
+                  <div v-if="filters.category === 'boilers'">
+                    <div class="flex items-center justify-between mb-3">
+                      <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400">{{ $t('catalog.modal.power') }}</h3>
+                      <button
+                        @click="powerKWDropdownOpen = !powerKWDropdownOpen"
+                        class="p-1.5 rounded-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200"
+                      >
+                        <svg
+                          class="w-4 h-4 transition-transform duration-300 text-gray-600 dark:text-gray-400"
+                          :class="{ 'rotate-180': powerKWDropdownOpen }"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                    </div>
+                    <Transition name="power-dropdown">
+                      <div v-if="powerKWDropdownOpen" class="space-y-2 mt-2">
+                        <label
+                          v-for="powerOption in powerKWOptions"
+                          :key="powerOption.value"
+                          class="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/15 dark:hover:bg-white/10 cursor-pointer transition-all duration-200 border border-transparent hover:border-brand-yellow/30"
+                        >
+                          <div class="relative flex items-center justify-center">
+                            <input
+                              type="checkbox"
+                              :value="powerOption.value"
+                              v-model="filters.selectedPowerKW"
+                              class="custom-checkbox appearance-none w-5 h-5 rounded-md border-2 border-gray-300 dark:border-gray-400 bg-gray-100 dark:bg-gray-700 cursor-pointer transition-all duration-200 checked:bg-brand-yellow checked:border-brand-yellow focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 shadow-sm"
+                            />
+                            <svg
+                              v-if="filters.selectedPowerKW.includes(powerOption.value)"
+                              class="absolute w-3.5 h-3.5 text-white pointer-events-none transition-all duration-200 scale-100 drop-shadow-sm"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-brand-yellow transition-colors duration-200">
+                            {{ powerOption.label }}
+                          </span>
+                        </label>
+                      </div>
+                    </Transition>
+                  </div>
+
                   <!-- Size Filter (only for heat curtains) -->
                   <div v-if="filters.category === 'heat-curtains'">
                     <div class="flex items-center justify-between mb-3">
@@ -351,8 +402,8 @@
           </Transition>
         </Teleport>
 
-        <!-- Categories Grid (shown when no category is selected) -->
-        <div v-if="!filters.category && !hasActiveFilters" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Categories Grid (shown when no category is selected and no search query) -->
+        <div v-if="!filters.category && !hasActiveFilters && !route.query.search" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <CategoryCard
             v-for="(category, index) in categoryList"
             :key="category.slug"
@@ -362,8 +413,8 @@
           />
         </div>
 
-        <!-- Products Grid (shown when category is selected or filters are active) -->
-        <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Products Grid (shown when category is selected, filters are active, or search query exists) -->
+        <div v-else-if="filters.category || hasActiveFilters || route.query.search" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <ProductCard
             v-for="(product, index) in filteredProducts"
             :key="product.slug"
@@ -410,6 +461,7 @@ useSeoMeta({
 const filterModalOpen = ref(false)
 const categoryDropdownOpen = ref(false)
 const powerDropdownOpen = ref(false)
+const powerKWDropdownOpen = ref(false)
 const sizeDropdownOpen = ref(false)
 const colorDropdownOpen = ref(false)
 
@@ -422,6 +474,7 @@ const filters = ref({
   priceMax: 5000000 as number,
   sort: 'popular' as string,
   selectedPowerBTU: [] as number[],
+  selectedPowerKW: [] as number[],
   selectedSizes: [] as number[],
   selectedColors: [] as string[],
 })
@@ -456,6 +509,7 @@ const activeFiltersCount = computed(() => {
   if (filters.value.category) count++
   if (filters.value.brand) count++
   if (filters.value.selectedPowerBTU.length > 0) count++
+  if (filters.value.selectedPowerKW.length > 0) count++
   if (filters.value.selectedSizes.length > 0) count++
   if (filters.value.selectedColors.length > 0) count++
   return count
@@ -496,6 +550,9 @@ watch(() => filters.value, (newFilters) => {
   if (newFilters.selectedPowerBTU.length > 0) {
     queryParams.power = newFilters.selectedPowerBTU.join(',')
   }
+  if (newFilters.selectedPowerKW.length > 0) {
+    queryParams.powerKW = newFilters.selectedPowerKW.join(',')
+  }
   if (newFilters.selectedSizes.length > 0) {
     queryParams.size = newFilters.selectedSizes.join(',')
   }
@@ -528,6 +585,9 @@ onMounted(() => {
     if (params.get('power')) {
       filters.value.selectedPowerBTU = params.get('power')!.split(',').map(Number)
     }
+    if (params.get('powerKW')) {
+      filters.value.selectedPowerKW = params.get('powerKW')!.split(',').map(Number)
+    }
     if (params.get('size')) {
       filters.value.selectedSizes = params.get('size')!.split(',').map(Number)
     }
@@ -558,10 +618,12 @@ const resetFilters = () => {
   // Сбрасываем только флажки и значения фильтров
   filters.value.brand = null
   filters.value.selectedPowerBTU = []
+  filters.value.selectedPowerKW = []
   filters.value.selectedSizes = []
   filters.value.selectedColors = []
   // Закрываем все выпадающие списки
   powerDropdownOpen.value = false
+  powerKWDropdownOpen.value = false
   dropdowns.value.sizeDropdownOpen = false
   dropdowns.value.colorDropdownOpen = false
   // Обновляем sessionStorage с учетом сохраненной категории
@@ -590,30 +652,35 @@ const categoryList = computed(() => [
     slug: 'air-conditioners',
     name: t('catalog.categories.airConditioners'),
     description: t('categories.descriptions.airConditioners'),
+    image: '/images/catalog/welkin/air-conditioners/Nuar.png',
     icon: AirConditionerIcon,
   },
   {
     slug: 'air-purifiers',
     name: t('catalog.categories.airPurifiers'),
     description: t('categories.descriptions.airPurifiers'),
+    image: '/images/catalog/welkin/air-purifiers/K08A.png',
     icon: PurificationIcon,
   },
   {
     slug: 'boilers',
     name: t('catalog.categories.boilers'),
     description: t('categories.descriptions.boilers'),
+    image: '/images/catalog/welkin/boilers/Diana.png',
     icon: HeatingIcon,
   },
   {
     slug: 'dehumidifiers',
     name: t('catalog.categories.dehumidifiers'),
     description: t('categories.descriptions.dehumidifiers'),
+    image: '/images/catalog/welkin/dehumidifiers/CL-158H.png',
     icon: DehumidifierIcon,
   },
   {
     slug: 'heat-curtains',
     name: t('catalog.categories.heatCurtains'),
     description: t('categories.descriptions.heatCurtains'),
+    image: '/images/catalog/welkin/heat-curtains/Zavesa_silver.png',
     icon: HeatCurtainIcon,
   },
 ])
@@ -629,6 +696,12 @@ const powerBTUOptions = [
   { value: 12000, label: '12 000 BTU' },
   { value: 18000, label: '18 000 BTU' },
   { value: 24000, label: '24 000 BTU' },
+]
+
+const powerKWOptions = [
+  { value: 20, label: '20 кВт' },
+  { value: 26, label: '26 кВт' },
+  { value: 32, label: '32 кВт' },
 ]
 
 // Функция для округления мощности к ближайшему значению из группы
@@ -678,6 +751,35 @@ const powerRanges = [
 const filteredProducts = computed(() => {
   let result = [...products.value]
 
+  // Filter by search query
+  const searchQuery = route.query.search as string | undefined
+  if (searchQuery && searchQuery.trim()) {
+    const lowerQuery = searchQuery.toLowerCase().trim()
+    result = result.filter(p => {
+      // Search in original name
+      const nameMatch = p.name.toLowerCase().includes(lowerQuery)
+      
+      // Search in translated name (if available)
+      let translatedNameMatch = false
+      try {
+        const translatedName = t(`products.items.${p.slug}.name`)
+        if (translatedName && translatedName !== `products.items.${p.slug}.name`) {
+          translatedNameMatch = translatedName.toLowerCase().includes(lowerQuery)
+        }
+      } catch {
+        // Translation not found, ignore
+      }
+      
+      // Search in description (already translated)
+      const descriptionMatch = p.description?.toLowerCase().includes(lowerQuery) || false
+      
+      // Search in category name (already translated)
+      const categoryMatch = categories.value.find(c => c.slug === p.category)?.name.toLowerCase().includes(lowerQuery) || false
+      
+      return nameMatch || translatedNameMatch || descriptionMatch || categoryMatch
+    })
+  }
+
   // Filter by category
   if (filters.value.category) {
     result = result.filter(p => p.category === filters.value.category)
@@ -695,6 +797,17 @@ const filteredProducts = computed(() => {
       // Проверяем, есть ли хотя бы одна мощность, которая попадает в выбранные группы
       return availablePowerBTU.some((power: number) => 
         filters.value.selectedPowerBTU.some(selectedGroup => isPowerInGroup(power, selectedGroup))
+      )
+    })
+  }
+
+  // Filter by power KW (only for boilers)
+  if (filters.value.category === 'boilers' && filters.value.selectedPowerKW.length > 0) {
+    result = result.filter(p => {
+      const availablePowerKW = (p as any).availablePowerKW || []
+      // Проверяем, есть ли хотя бы одна мощность, которая совпадает с выбранными
+      return availablePowerKW.some((power: number) => 
+        filters.value.selectedPowerKW.includes(power)
       )
     })
   }

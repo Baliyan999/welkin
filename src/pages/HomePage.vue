@@ -15,27 +15,6 @@
         <AdvantagesSection />
       </SectionWrapper>
 
-      <!-- Products -->
-      <SectionWrapper>
-        <h2 class="text-center mb-12" v-motion-slide-up>
-          {{ $t('products.title') }}
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <ProductCard
-            v-for="(product, index) in featuredProducts"
-            :key="product.slug"
-            :product="product"
-            v-motion-slide-up
-            :delay="index * 100"
-          />
-        </div>
-        <div class="text-center mt-12">
-          <RouterLink to="/catalog" class="btn btn-outline">
-            {{ $t('products.viewAll') }}
-          </RouterLink>
-        </div>
-      </SectionWrapper>
-
       <!-- Blog Preview -->
       <SectionWrapper class="bg-gray-50 dark:bg-gray-800/50 rounded-3xl">
         <h2 class="text-center mb-12" v-motion-slide-up>
@@ -86,10 +65,9 @@ import SectionWrapper from '@/components/SectionWrapper.vue'
 import HeroSlider from '@/components/HeroSlider.vue'
 import CategoryGrid from '@/components/CategoryGrid.vue'
 import AdvantagesSection from '@/components/AdvantagesSection.vue'
-import ProductCard from '@/components/ProductCard.vue'
 import BlogCard from '@/components/BlogCard.vue'
 import { RouterLink } from 'vue-router'
-import { getProductImage, getBlogImage } from '@/utils/imageHelper'
+import { getBlogImage } from '@/utils/imageHelper'
 
 const { t } = useI18n()
 
@@ -97,8 +75,6 @@ useSeoMeta({
   title: () => `Welkin - ${t('hero.title')}`,
   description: () => `Welkin - ${t('hero.subtitle')}`,
 })
-
-const featuredProducts = computed(() => [])
 
 const featuredPosts = computed(() => [
   {

@@ -1,13 +1,13 @@
 <template>
   <button
     @click="toggle"
-    class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
+    class="p-1.5 desktop:p-2 rounded-lg hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors group"
     :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
   >
     <!-- Солнце (светлая тема) - показываем когда isDark = false -->
     <svg
       v-if="!isDark"
-      class="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-brand-yellow transition-colors"
+      class="w-4 h-4 desktop:w-5 desktop:h-5 text-gray-300 group-hover:text-brand-yellow transition-colors"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -22,7 +22,7 @@
     <!-- Луна (темная тема) - показываем когда isDark = true -->
     <svg
       v-else
-      class="w-5 h-5 text-white group-hover:text-brand-yellow transition-colors"
+      class="w-4 h-4 desktop:w-5 desktop:h-5 text-white group-hover:text-brand-yellow transition-colors"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"

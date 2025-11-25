@@ -13,9 +13,31 @@
         <div class="absolute inset-0 bg-gradient-to-r from-brand-gray/90 to-brand-gray/60" />
       </div>
       <div class="relative h-full flex items-center section-wrapper">
-        <div class="max-w-2xl text-white" v-motion-slide-left>
-          <h1 class="mb-4 text-white">{{ slide.title }}</h1>
-          <p class="text-xl md:text-2xl text-gray-200">{{ slide.subtitle }}</p>
+        <div class="max-w-2xl text-white">
+          <!-- Animated Title -->
+          <h1 class="mb-4 text-white overflow-hidden" :key="`title-${index}-${animationKey}`">
+            <span
+              v-for="(word, wordIndex) in slide.titleWords"
+              :key="`title-${index}-${wordIndex}-${animationKey}`"
+              class="inline-block"
+              :class="{ 'animate-word-drop': currentSlide === index }"
+              :style="{ animationDelay: `${wordIndex * 0.1}s` }"
+            >
+              {{ word }}&nbsp;
+            </span>
+          </h1>
+          <!-- Animated Subtitle -->
+          <p class="text-xl md:text-2xl text-gray-200 overflow-hidden" :key="`subtitle-${index}-${animationKey}`">
+            <span
+              v-for="(word, wordIndex) in slide.subtitleWords"
+              :key="`subtitle-${index}-${wordIndex}-${animationKey}`"
+              class="inline-block"
+              :class="{ 'animate-word-drop': currentSlide === index }"
+              :style="{ animationDelay: `${(slide.titleWords.length + wordIndex) * 0.1}s` }"
+            >
+              {{ word }}&nbsp;
+            </span>
+          </p>
         </div>
       </div>
     </div>
@@ -35,33 +57,66 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { getHeroImage } from '@/utils/imageHelper'
 
 const { t } = useI18n()
 const currentSlide = ref(0)
+const animationKey = ref(0)
 
-const slides = computed(() => [
-  {
-    title: t('hero.title'),
-    subtitle: t('hero.subtitle'),
-    cta: t('hero.cta'),
-    image: getHeroImage('hero-1'),
-  },
-  {
-    title: t('hero.slide2.title'),
-    subtitle: t('hero.slide2.subtitle'),
-    cta: t('hero.cta'),
-    image: getHeroImage('hero-2'),
-  },
-  {
-    title: t('hero.slide3.title'),
-    subtitle: t('hero.slide3.subtitle'),
-    cta: t('hero.cta'),
-    image: getHeroImage('hero-3'),
-  },
-])
+// Reset animation when slide changes
+watch(currentSlide, () => {
+  animationKey.value++
+})
+
+const slides = computed(() => {
+  const title = t('hero.title')
+  const subtitle = t('hero.subtitle')
+  
+  return [
+    {
+      title,
+      subtitle,
+      cta: t('hero.cta'),
+      image: getHeroImage('hero-1'),
+      titleWords: title.split(' '),
+      subtitleWords: subtitle.split(' '),
+    },
+    {
+      title,
+      subtitle,
+      cta: t('hero.cta'),
+      image: getHeroImage('hero-2'),
+      titleWords: title.split(' '),
+      subtitleWords: subtitle.split(' '),
+    },
+    {
+      title,
+      subtitle,
+      cta: t('hero.cta'),
+      image: getHeroImage('hero-3'),
+      titleWords: title.split(' '),
+      subtitleWords: subtitle.split(' '),
+    },
+    {
+      title,
+      subtitle,
+      cta: t('hero.cta'),
+      image: getHeroImage('hero-4'),
+      titleWords: title.split(' '),
+      subtitleWords: subtitle.split(' '),
+    },
+    {
+      title,
+      subtitle,
+      cta: t('hero.cta'),
+      image: getHeroImage('hero-5'),
+      titleWords: title.split(' '),
+      subtitleWords: subtitle.split(' '),
+    },
+  ]
+})
 
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % slides.value.length
@@ -74,7 +129,7 @@ const prevSlide = () => {
 let interval: number | null = null
 
 onMounted(() => {
-  interval = window.setInterval(nextSlide, 5000)
+  interval = window.setInterval(nextSlide, 10000)
 })
 
 onUnmounted(() => {

@@ -12,11 +12,13 @@
         :delay="index * 100"
       />
     </div>
+    <!-- Временно закомментировано - возможно пригодится когда каталог будет большим
     <div class="text-center mt-12">
       <RouterLink to="/catalog" class="btn btn-outline">
         {{ $t('categories.viewAll') }}
       </RouterLink>
     </div>
+    -->
   </SectionWrapper>
 </template>
 
@@ -35,30 +37,35 @@ const categories = [
     slug: 'air-conditioners',
     name: 'Кондиционеры',
     description: 'Сплит-системы и мульти-сплит системы',
+    image: '/images/catalog/welkin/air-conditioners/Nuar.png',
     icon: AirConditionerIcon,
   },
   {
     slug: 'air-purifiers',
-    name: 'Очистители воздуха',
+    name: 'Очиститель/Увлажнитель воздуха',
     description: 'Очистители и увлажнители',
+    image: '/images/catalog/welkin/air-purifiers/K08A.png',
     icon: PurificationIcon,
   },
   {
     slug: 'boilers',
-    name: 'Котлы',
+    name: 'Газовый котел',
     description: 'Отопительные котлы',
+    image: '/images/catalog/welkin/boilers/Diana.png',
     icon: HeatingIcon,
   },
   {
     slug: 'dehumidifiers',
     name: 'Осушители воздуха',
     description: 'Осушители для помещений',
+    image: '/images/catalog/welkin/dehumidifiers/CL-158H.png',
     icon: DehumidifierIcon,
   },
   {
     slug: 'heat-curtains',
-    name: 'Тепловые завесы',
+    name: 'Воздушные/Тепловые завесы',
     description: 'Воздушные и тепловые завесы',
+    image: '/images/catalog/welkin/heat-curtains/Zavesa_silver.png',
     icon: HeatCurtainIcon,
   },
 ]
