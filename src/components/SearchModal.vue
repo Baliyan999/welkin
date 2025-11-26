@@ -11,7 +11,7 @@
         
         <!-- Modal Content -->
         <div
-          class="relative w-full max-w-2xl glass-effect rounded-3xl shadow-2xl border border-white/20 dark:border-white/10"
+          class="relative w-full max-w-2xl bg-white dark:glass-effect rounded-3xl shadow-2xl border border-gray-200 dark:border-white/10"
           v-motion-pop
           @click.stop
         >
@@ -27,7 +27,7 @@
                 @keydown.escape="closeModal"
                 type="text"
                 :placeholder="$t('search.placeholder')"
-                class="w-full px-4 py-3 pl-12 pr-12 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all duration-300 text-base placeholder-gray-400 dark:placeholder-gray-500"
+                class="w-full px-4 py-3 pl-12 pr-12 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all duration-300 text-base placeholder-gray-500 dark:placeholder-gray-500 text-gray-900 dark:text-gray-100"
               />
               <!-- Search Icon -->
               <div class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
@@ -77,12 +77,12 @@
                     :key="product.slug"
                     :to="`/catalog/${product.slug}`"
                     @click="handleResultClick"
-                    class="group flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200"
+                    class="group flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-200"
                   >
                     <img
                       :src="product.image"
                       :alt="product.name"
-                      class="w-16 h-16 object-contain rounded-lg bg-white/50 dark:bg-gray-700/50 p-2 flex-shrink-0"
+                      class="w-16 h-16 object-contain rounded-lg bg-gray-50 dark:bg-gray-700/50 p-2 flex-shrink-0"
                     />
                     <div class="flex-1 min-w-0">
                       <p class="text-base font-medium text-gray-800 dark:text-gray-200 group-hover:text-brand-yellow transition-colors duration-200 truncate">
@@ -113,7 +113,7 @@
                     :key="category.slug"
                     :to="`/catalog?category=${category.slug}`"
                     @click="handleResultClick"
-                    class="group flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200"
+                    class="group flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-200"
                   >
                     <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/10 flex items-center justify-center flex-shrink-0">
                       <svg class="w-8 h-8 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">

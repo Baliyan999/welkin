@@ -6,7 +6,7 @@
           <img
             :src="product.image"
             :alt="product.name"
-            class="product-image group-hover:scale-110 transition-transform duration-500"
+            class="product-image group-hover:scale-110 transition-transform duration-700"
             loading="lazy"
             style="image-orientation: 0deg;"
           />

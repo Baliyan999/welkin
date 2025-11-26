@@ -11,10 +11,10 @@
         @keydown.escape="closeResults"
         type="text"
         :placeholder="$t('search.placeholder')"
-        class="w-full tablet:w-64 desktop:w-80 px-4 py-2 pl-10 pr-10 rounded-xl bg-gray-700/50 dark:bg-gray-800/50 border border-gray-600 dark:border-gray-700 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all duration-300 text-sm desktop:text-base placeholder-gray-400 dark:placeholder-gray-400 text-gray-100 dark:text-gray-100"
+        class="w-full tablet:w-64 desktop:w-80 px-4 py-2 pl-10 pr-10 rounded-xl bg-gray-100 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all duration-300 text-sm desktop:text-base placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-gray-100"
       />
       <!-- Search Icon -->
-      <div class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
+      <div class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-500">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
@@ -23,7 +23,7 @@
       <button
         v-if="searchQuery"
         @click="clearSearch"
-        class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-brand-yellow transition-colors duration-200"
+        class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-500 hover:text-brand-yellow transition-colors duration-200"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -35,7 +35,7 @@
     <Transition name="search-dropdown">
       <div
         v-if="isFocused && (searchResults.length > 0 || searchQuery.length > 0)"
-        class="absolute top-full left-0 right-0 mt-2 glass-effect rounded-2xl shadow-2xl border border-white/20 dark:border-white/10 z-50 max-h-[500px] overflow-y-auto"
+        class="absolute top-full left-0 right-0 mt-2 bg-white dark:glass-effect rounded-2xl shadow-2xl border border-gray-200 dark:border-white/10 z-50 max-h-[500px] overflow-y-auto"
         v-motion-slide-down
       >
         <!-- Loading State -->
@@ -71,7 +71,7 @@
                 <img
                   :src="product.image"
                   :alt="product.name"
-                  class="w-12 h-12 object-contain rounded-lg bg-white/50 dark:bg-gray-700/50 p-1"
+                  class="w-12 h-12 object-contain rounded-lg bg-gray-50 dark:bg-gray-700/50 p-1"
                 />
                 <div class="flex-1 min-w-0">
                   <p class="text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-brand-yellow transition-colors duration-200 truncate">

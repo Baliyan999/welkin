@@ -4,8 +4,8 @@
       @click="dropdownOpen = !dropdownOpen"
       class="relative p-1.5 md:px-2.5 md:py-1.5 desktop:px-3 desktop:py-2 rounded-xl transition-all duration-300 flex items-center gap-1 md:gap-1.5 desktop:gap-2"
       :class="{
-        'text-white': dropdownOpen,
-        'text-gray-300 hover:text-brand-yellow': !dropdownOpen
+        'text-brand-gray dark:text-white': dropdownOpen,
+        'text-gray-700 dark:text-gray-300 hover:text-brand-yellow': !dropdownOpen
       }"
       aria-label="Change language"
     >
@@ -29,17 +29,17 @@
 
     <div
       v-if="dropdownOpen"
-      class="absolute left-1/2 -translate-x-1/2 mt-2 w-36 md:w-40 glass-effect rounded-2xl p-2 shadow-2xl z-50 border border-white/20 dark:border-white/10"
+      class="absolute left-1/2 -translate-x-1/2 mt-2 w-36 md:w-40 bg-white dark:glass-effect rounded-2xl p-2 shadow-2xl z-50 border border-gray-200 dark:border-white/10"
       v-motion-slide-down
     >
       <button
         v-for="locale in locales"
         :key="locale.code"
         @click="changeLocale(locale.code)"
-        class="w-full px-4 py-2.5 rounded-xl text-sm hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200 flex items-center justify-between"
+        class="w-full px-4 py-2.5 rounded-xl text-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-200 flex items-center justify-between"
         :class="{
-          'text-white bg-white/10': currentLocale === locale.code,
-          'text-gray-300': currentLocale !== locale.code
+          'text-brand-gray dark:text-white bg-gray-100 dark:bg-white/10': currentLocale === locale.code,
+          'text-gray-700 dark:text-gray-300': currentLocale !== locale.code
         }"
       >
         <span>{{ locale.name }}</span>

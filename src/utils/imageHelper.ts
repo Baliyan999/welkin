@@ -21,7 +21,8 @@ export function getProductImage(
  * Получить изображение статьи блога
  */
 export function getBlogImage(slug: string): string {
-  return `/images/blog/${slug}.jpg`
+  // Временно используем одно изображение как заглушку для всех постов
+  return `/images/blog/how-to-choose-ac.png`
 }
 
 /**

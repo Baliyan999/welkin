@@ -3,7 +3,7 @@
     "home": "Bosh sahifa",
     "catalog": "Katalog",
     "blog": "Blog",
-    "about": "Kompaniya haqida",
+    "about": "Biz haqimizda",
     "contacts": "Kontaktlar"
   },
   "hero": {
@@ -59,10 +59,32 @@
     }
   },
   "footer": {
-    "about": "Kompaniya haqida",
-    "catalog": "Katalog",
-    "blog": "Blog",
-    "contacts": "Kontaktlar",
+    "description": "Welkin va Midea zamonaviy iqlim uskunalari sizning qulayligingiz uchun. Har bir mahsulotda sifat, ishonchlilik va innovatsiyalar.",
+    "quickLinks": "Tezkor havolalar",
+    "contact": "Kontaktlar",
+    "navigation": "Navigatsiya",
+    "showroomAddress": "Shou-rum manzili:",
+    "address1": "Test manzil 1, Namuna ko'chasi, 10",
+    "address1Coords": "41.2995,69.2401",
+    "address2": "Test manzil 2, Namuna ko'chasi, 20",
+    "address2Coords": "41.3100,69.2500",
+    "openInMap": "Xaritada ochish",
+    "chooseMap": "Xaritani tanlang",
+    "yandexMaps": "Yandex Xaritasi",
+    "googleMaps": "Google Xaritasi",
+    "serviceCenter": "Xizmat markazi:",
+    "servicePhone": "+998 (99) 123-45-67",
+    "salesDepartment": "Sotish bo'limi:",
+    "salesPhone": "+998 (99) 987-65-43",
+    "socialMedia": "Ijtimoiy tarmoqlarda biz",
+    "newsletter": "Nima uchun biz",
+    "newsletterText": "Biz sifatni kafolatlaymiz va eng yaxshi xizmatni taqdim etamiz",
+    "guarantee": "Sifat kafolati",
+    "guaranteeText": "Barcha mahsulotlar uchun rasmiy kafolat",
+    "fastDelivery": "Tezkor yetkazib berish",
+    "fastDeliveryText": "Butun mintaqa bo'ylab yetkazib berish",
+    "privacy": "Maxfiylik siyosati",
+    "terms": "Foydalanish shartlari",
     "rights": "Barcha huquqlar himoyalangan"
   },
   "product": {
@@ -71,9 +93,39 @@
     "related": "O'xshash mahsulotlar"
   },
   "about": {
-    "title": "Welkin kompaniyasi haqida",
+    "title": "Biz haqimizda",
+    "subtitle": "Welkin va Midea — iqlim uskunalari sohasidagi ikki yetakchi brend, sifat va innovatsiyalar bilan birlashtirilgan",
+    "description1": "Biz iqlim uskunalari ishlab chiqarishning ikki global yetakchisini — Welkin va Mideani taqdim etamiz. Bizning hamkorligimiz mijozlarga har qanday xonada ideal mikroklimat yaratish uchun keng qamrovli yechimlarni taklif qilish imkonini beradi.",
+    "description2": "Welkin energiya samaradorligi va innovatsion texnologiyalarga e'tibor qaratgan holda yuqori sifatli iqlim uskunalarini ishlab chiqish va ishlab chiqarishga ixtisoslashgan. Midea — dunyodagi eng yirik maishiy texnika ishlab chiqaruvchilaridan biri bo'lib, ilg'or yechimlar va ishonchliligi bilan mashhur.",
+    "welkin": {
+      "description": "Welkin — premium darajadagi iqlim uskunalarini yaratish uchun ko'p yillik tajriba va zamonaviy texnologiyalarni birlashtirgan brend. Welkin mahsulotlari yuqori sifat, energiya samaradorligi va innovatsion funksiyalar bilan ajralib turadi.",
+      "feature1": "Ekologik toza materiallar va xavfsiz texnologiyalar",
+      "feature2": "Energiya tejash uchun inverter texnologiyalari",
+      "feature3": "Zamonaviy dizayn va jimgir ishlash"
+    },
+    "midea": {
+      "description": "Midea — maishiy texnika va iqlim uskunalari ishlab chiqarishning global yetakchisi. Kompaniya innovatsion yechimlari, yuqori sifatli mahsulotlari va qulay narxlari bilan mashhur. Midea butun dunyo bo'ylab millionlab uylar uchun uskunalar ishlab chiqaradi.",
+      "feature1": "Ko'p yillik tajribaga ega global yetakchi",
+      "feature2": "Ilg'or texnologiyalar va aqlli funksiyalar",
+      "feature3": "Narx va sifatning optimal nisbati"
+    },
+    "partnership": {
+      "title": "Bizning hamkorligimiz",
+      "description": "Welkin va Midea kuchlarini birlashtirib, biz mijozlarimizga har qanday loyiha uchun ideal yechimni tanlash imkoniyatini taklif etamiz — iqtisodiy sinfdan premium segmentgacha.",
+      "benefit1": "Keng mahsulot tanlovi",
+      "benefit2": "Sifat kafolati",
+      "benefit3": "Professional yordam"
+    },
     "mission": "Bizning missiyamiz",
-    "values": "Qadriyatlar"
+    "missionText": "Welkin va Midea mahsulotlarining sifati, innovatsiyalar va qulaylikni birlashtirib, mijozlarga ideal mikroklimat yaratish uchun eng yaxshi yechimlarni taqdim etish. Biz qulay iqlimni hamma uchun qulay qilishga intilamiz.",
+    "values": "Qadriyatlar",
+    "value1": "Sifat va ishonchlilik",
+    "value2": "Professional xizmat",
+    "value3": "Halollik va shaffoflik",
+    "value4": "Innovatsiyalar va texnologiyalar",
+    "ctaTitle": "Sifatli uskunani sotib olishga tayyormisiz?",
+    "ctaText": "Welkin va Midea uskunalarini maslahat va xarid qilish uchun biz bilan bog'laning. Biz sizning uyingiz yoki biznesingiz uchun ideal yechimni tanlashda yordam beramiz",
+    "ctaButton": "Kontaktlarga o'tish"
   },
   "contacts": {
     "title": "Kontaktlar",
@@ -84,6 +136,7 @@
     "hours": "Ish vaqti",
     "hoursValue": "Dush-Juma: 9:00 - 18:00\nShanba: 10:00 - 16:00\nYakshanba: Dam olish",
     "addressValue": "Toshkent sh., Namuna ko'chasi, 123",
+    "addressCoords": "41.3111,69.2797",
     "phoneValue": "+998 90 123 45 67",
     "emailValue": "info@welkin.uz",
     "form": {
@@ -316,7 +369,7 @@
     "postNotFound": "Maqola topilmadi",
     "social": {
       "facebook": "Facebook",
-      "twitter": "Twitter",
+      "instagram": "Instagram",
       "telegram": "Telegram"
     },
     "posts": {
@@ -370,6 +423,12 @@
     "resultsFor": "Qidiruv natijalari: {query}",
     "foundResults": "Topilgan mahsulotlar: {count}",
     "startTyping": "Qidirish uchun so'rov kiriting"
+  },
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "description": "Afsuski, so'ralgan sahifa mavjud emas. Ehtimol, u o'chirilgan yoki ko'chirilgan.",
+    "goHome": "Bosh sahifaga",
+    "goBack": "Orqaga"
   }
 }
 

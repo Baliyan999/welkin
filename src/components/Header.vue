@@ -1,13 +1,14 @@
 <template>
   <header
-    class="sticky top-0 z-50 bg-brand-gray dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-700 dark:border-gray-800"
+    class="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/80 backdrop-blur-xl dark:backdrop-blur-md border-b border-gray-200/80 dark:border-gray-800 shadow-sm dark:shadow-none"
+    style="box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);"
     v-motion-slide-top
   >
     <nav class="section-wrapper py-3 desktop:py-4">
       <div class="flex items-center justify-between">
         <RouterLink to="/" class="flex items-center group">
           <img
-            src="/images/logo/logo_Welkin_x_Midea.svg"
+            :src="logoPath"
             alt="Welkin x Midea"
             class="h-8 md:h-10 desktop:h-12 w-auto"
           />
@@ -28,8 +29,8 @@
             <span
               class="relative z-10 transition-colors duration-300"
               :class="{
-                'text-white font-semibold': isActive,
-                'text-gray-300 hover:text-brand-yellow': !isActive
+                'text-brand-gray dark:text-white font-semibold': isActive,
+                'text-gray-700 dark:text-gray-300 hover:text-brand-yellow': !isActive
               }"
             >
               {{ $t(item.key) }}
@@ -38,23 +39,25 @@
         </div>
 
         <div class="flex items-center space-x-2 desktop:space-x-4">
+          <!-- Theme Toggle - between logo and language switcher -->
+          <ThemeToggle />
+          
           <!-- Search Icon Button (desktop only) -->
           <button
             @click="searchModalOpen = true"
-            class="hidden tablet:flex items-center justify-center p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-all duration-200"
+            class="hidden tablet:flex items-center justify-center p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
             aria-label="Search"
           >
-            <svg class="w-6 h-6 text-gray-300 hover:text-brand-yellow transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-brand-yellow transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
           
-          <LanguageSwitcher class="hidden min-[480px]:block" />
-          <ThemeToggle />
+          <LanguageSwitcher />
           
           <button
             @click="mobileMenuOpen = !mobileMenuOpen"
-            class="tablet:hidden p-2 rounded-lg hover:bg-gray-700 dark:hover:bg-gray-800 transition-all duration-300 text-gray-300"
+            class="tablet:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 text-gray-700 dark:text-gray-300"
             aria-label="Menu"
           >
             <div class="relative w-6 h-6">
@@ -94,13 +97,8 @@
           class="tablet:hidden mt-4 pb-4 space-y-2"
         >
         <!-- Search Bar for Mobile - Top -->
-        <div class="px-2 pb-4 border-b border-gray-700 dark:border-gray-700">
+        <div class="px-2 pb-4 border-b border-gray-200 dark:border-gray-700">
           <SearchBar />
-        </div>
-        
-        <!-- Language Switcher for Mobile -->
-        <div class="min-[480px]:hidden pb-2 border-b border-gray-700 dark:border-gray-700 flex justify-center">
-          <LanguageSwitcher />
         </div>
         
         <!-- Navigation Links - Centered -->
@@ -120,8 +118,8 @@
             <span
               class="relative z-10 transition-colors duration-300"
               :class="{
-                'text-white font-semibold': isActive,
-                'text-gray-300 hover:text-brand-yellow': !isActive
+                'text-brand-gray dark:text-white font-semibold': isActive,
+                'text-gray-700 dark:text-gray-300 hover:text-brand-yellow': !isActive
               }"
             >
               {{ $t(item.key) }}
@@ -138,9 +136,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, Transition } from 'vue'
+import { ref, computed, Transition } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { useTheme } from '@/composables/useTheme'
 import ThemeToggle from './ThemeToggle.vue'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 import SearchBar from './SearchBar.vue'
@@ -148,8 +147,15 @@ import SearchModal from './SearchModal.vue'
 
 const { t } = useI18n()
 const route = useRoute()
+const { isDark } = useTheme()
 const mobileMenuOpen = ref(false)
 const searchModalOpen = ref(false)
+
+const logoPath = computed(() => {
+  return isDark.value 
+    ? '/images/logo/logo_Welkin_x_Midea.svg'
+    : '/images/logo/logo_Welkin_x_Midea_light.svg'
+})
 
 const navItems = [
   { path: '/', key: 'nav.home' },

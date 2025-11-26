@@ -14,110 +14,81 @@
         </div>
 
         <!-- Filters and Search -->
-        <div class="mb-8 flex flex-col sm:flex-row gap-4 items-center justify-between" v-motion-slide-up>
-          <!-- Category Filter - Desktop (horizontal buttons) -->
-          <div class="hidden blog-lg:flex flex-wrap gap-2">
-            <button
-              @click="selectedCategory = null"
-              class="relative px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300"
-              :class="{
-                'text-white': selectedCategory === null,
-                'text-gray-300 hover:text-brand-yellow': selectedCategory !== null
-              }"
-            >
-              <span
-                v-if="selectedCategory === null"
-                class="glass-effect absolute inset-0 rounded-xl"
-              />
-              <span class="relative z-10">{{ $t('blog.allCategories') }}</span>
-            </button>
-            <button
-              v-for="category in categories"
-              :key="category.slug"
-              @click="selectedCategory = selectedCategory === category.slug ? null : category.slug"
-              class="relative px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300"
-              :class="{
-                'text-white': selectedCategory === category.slug,
-                'text-gray-300 hover:text-brand-yellow': selectedCategory !== category.slug
-              }"
-            >
-              <span
-                v-if="selectedCategory === category.slug"
-                class="glass-effect absolute inset-0 rounded-xl"
-              />
-              <span class="relative z-10">{{ category.name }}</span>
-            </button>
-          </div>
-
-          <!-- Category Filter - Mobile/Tablet (dropdown) -->
-          <div class="relative blog-lg:hidden w-full sm:w-auto">
+        <div class="mb-8 flex items-center gap-4 flex-wrap justify-between" v-motion-slide-up>
+          <!-- Category Filter - Dropdown (like catalog) -->
+          <div class="relative" data-category-dropdown>
             <button
               @click="categoryDropdownOpen = !categoryDropdownOpen"
-              class="relative w-full sm:w-64 px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 bg-gray-700/50 border border-gray-600 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 text-gray-100 flex items-center justify-between"
+              class="relative px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2"
+              :class="{
+                'text-brand-gray dark:text-white': categoryDropdownOpen || selectedCategory,
+                'text-gray-700 dark:text-gray-300 hover:text-brand-yellow dark:hover:text-brand-yellow': !categoryDropdownOpen && !selectedCategory
+              }"
             >
-              <span>
-                {{ selectedCategory ? categories.find(c => c.slug === selectedCategory)?.name || $t('blog.allCategories') : $t('blog.allCategories') }}
+              <span
+                class="glass-effect absolute inset-0 rounded-xl"
+              />
+              <span class="relative z-10 flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                {{ selectedCategory ? categories.find(c => c.slug === selectedCategory)?.name : $t('blog.allCategories') }}
+                <svg
+                  class="w-4 h-4 transition-transform duration-300"
+                  :class="{ 'rotate-180': categoryDropdownOpen }"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
               </span>
-              <svg
-                class="w-5 h-5 transition-transform duration-300"
-                :class="{ 'rotate-180': categoryDropdownOpen }"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
             </button>
 
-            <!-- Dropdown Menu -->
-            <Transition
-              enter-active-class="transition duration-200 ease-out"
-              enter-from-class="transform scale-95 opacity-0"
-              enter-to-class="transform scale-100 opacity-100"
-              leave-active-class="transition duration-150 ease-in"
-              leave-from-class="transform scale-100 opacity-100"
-              leave-to-class="transform scale-95 opacity-0"
-            >
+            <!-- Category Dropdown -->
+            <Transition name="dropdown">
               <div
                 v-if="categoryDropdownOpen"
-                class="absolute z-50 mt-2 w-full sm:w-64 rounded-xl bg-gray-800 border border-gray-700 shadow-lg overflow-hidden"
-                @click.stop
+                class="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-2xl p-2 shadow-2xl z-50 border border-gray-200 dark:border-gray-700"
+                v-motion-slide-down
               >
                 <button
                   @click="selectedCategory = null; categoryDropdownOpen = false"
-                  class="w-full px-4 py-3 text-left text-sm transition-colors duration-200 hover:bg-gray-700"
+                  class="relative w-full px-4 py-2.5 rounded-xl text-sm text-left hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center justify-between"
                   :class="{
-                    'text-brand-yellow bg-gray-700/50': selectedCategory === null,
-                    'text-gray-300': selectedCategory !== null
+                    'text-brand-gray dark:text-white bg-gray-100 dark:bg-gray-700': !selectedCategory,
+                    'text-gray-700 dark:text-gray-300': selectedCategory
                   }"
                 >
-                  {{ $t('blog.allCategories') }}
+                  <span class="relative z-10">{{ $t('blog.allCategories') }}</span>
+                  <span v-if="!selectedCategory" class="relative z-10 text-brand-yellow text-lg">✓</span>
                 </button>
                 <button
                   v-for="category in categories"
                   :key="category.slug"
                   @click="selectedCategory = selectedCategory === category.slug ? null : category.slug; categoryDropdownOpen = false"
-                  class="w-full px-4 py-3 text-left text-sm transition-colors duration-200 hover:bg-gray-700"
+                  class="relative w-full px-4 py-2.5 rounded-xl text-sm text-left hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center justify-between"
                   :class="{
-                    'text-brand-yellow bg-gray-700/50': selectedCategory === category.slug,
-                    'text-gray-300': selectedCategory !== category.slug
+                    'text-brand-gray dark:text-white bg-gray-100 dark:bg-gray-700': selectedCategory === category.slug,
+                    'text-gray-700 dark:text-gray-300': selectedCategory !== category.slug
                   }"
                 >
-                  {{ category.name }}
+                  <span class="relative z-10">{{ category.name }}</span>
+                  <span v-if="selectedCategory === category.slug" class="relative z-10 text-brand-yellow text-lg">✓</span>
                 </button>
               </div>
             </Transition>
           </div>
 
           <!-- Search -->
-          <div class="relative w-full sm:w-64">
+          <div class="relative w-full sm:w-64 ml-auto">
             <input
               v-model="searchQuery"
               type="text"
               :placeholder="$t('blog.searchPlaceholder')"
-              class="w-full px-4 py-2 pl-10 pr-4 rounded-xl bg-gray-700/50 dark:bg-gray-800/50 border border-gray-600 dark:border-gray-700 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all duration-300 text-sm placeholder-gray-400 text-gray-100"
+              class="w-full px-4 py-2 pl-10 pr-4 rounded-xl bg-gray-100 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/20 transition-all duration-300 text-sm placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-gray-100"
             />
-            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <button
@@ -186,7 +157,8 @@ const categoryDropdownOpen = ref(false)
 // Close dropdown when clicking outside
 const handleClickOutside = (event: MouseEvent) => {
   const target = event.target as HTMLElement
-  if (!target.closest('.relative')) {
+  const categoryButton = document.querySelector('[data-category-dropdown]')
+  if (categoryButton && !categoryButton.contains(target)) {
     categoryDropdownOpen.value = false
   }
 }

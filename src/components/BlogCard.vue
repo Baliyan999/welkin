@@ -23,14 +23,6 @@
 
     <!-- Content -->
     <div class="p-6">
-      <!-- Date -->
-      <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-3">
-        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        <span>{{ formatDate(post.date) }}</span>
-      </div>
-
       <!-- Title -->
       <h3 class="text-xl font-bold mb-3 text-brand-gray dark:text-white group-hover:text-brand-yellow transition-colors duration-300 line-clamp-2">
         {{ post.title }}
@@ -72,12 +64,4 @@ defineProps<{
     categorySlug?: string
   }
 }>()
-
-const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString('ru-RU', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
-}
 </script>

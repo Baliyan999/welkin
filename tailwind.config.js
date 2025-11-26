@@ -21,6 +21,7 @@ export default {
           'gray-light': '#3A3A3A',
           'gray-dark': '#1A1A1A',
         },
+        'light-bg': 'rgb(253, 245, 234)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

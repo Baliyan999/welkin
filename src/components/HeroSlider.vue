@@ -10,12 +10,12 @@
         class="absolute inset-0 bg-cover bg-center"
         :style="{ backgroundImage: `url(${slide.image})` }"
       >
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-gray/90 to-brand-gray/60" />
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-800/60 dark:from-brand-gray/90 dark:to-brand-gray/60" />
       </div>
       <div class="relative h-full flex items-center section-wrapper">
         <div class="max-w-2xl text-white">
           <!-- Animated Title -->
-          <h1 class="mb-4 text-white overflow-hidden" :key="`title-${index}-${animationKey}`">
+          <h1 class="mb-4 text-2xl md:text-4xl lg:text-5xl font-bold text-white overflow-hidden lg:leading-[55px]" :key="`title-${index}-${animationKey}`">
             <span
               v-for="(word, wordIndex) in slide.titleWords"
               :key="`title-${index}-${wordIndex}-${animationKey}`"
@@ -27,13 +27,13 @@
             </span>
           </h1>
           <!-- Animated Subtitle -->
-          <p class="text-xl md:text-2xl text-gray-200 overflow-hidden" :key="`subtitle-${index}-${animationKey}`">
+          <p class="text-lg md:text-xl text-gray-200 overflow-hidden lg:leading-[55px]" :key="`subtitle-${index}-${animationKey}`">
             <span
               v-for="(word, wordIndex) in slide.subtitleWords"
               :key="`subtitle-${index}-${wordIndex}-${animationKey}`"
               class="inline-block"
               :class="{ 'animate-word-drop': currentSlide === index }"
-              :style="{ animationDelay: `${(slide.titleWords.length + wordIndex) * 0.1}s` }"
+              :style="{ animationDelay: `${(slide.titleWords.length + wordIndex) * 0.2}s` }"
             >
               {{ word }}&nbsp;
             </span>

@@ -47,14 +47,14 @@
             <Transition name="dropdown">
               <div
                 v-if="categoryDropdownOpen"
-                class="absolute top-full left-0 mt-2 w-56 glass-effect rounded-2xl p-2 shadow-2xl z-50 border border-white/20 dark:border-white/10"
+                class="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-2xl p-2 shadow-2xl z-50 border border-gray-200 dark:border-gray-700"
                 v-motion-slide-down
               >
                 <button
                   @click="filters.category = null; categoryDropdownOpen = false"
-                  class="w-full px-4 py-2.5 rounded-xl text-sm text-left hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200 flex items-center justify-between"
+                  class="w-full px-4 py-2.5 rounded-xl text-sm text-left hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center justify-between"
                   :class="{
-                    'text-brand-gray dark:text-white bg-white/10': !filters.category,
+                    'text-brand-gray dark:text-white bg-gray-100 dark:bg-gray-700': !filters.category,
                     'text-gray-700 dark:text-gray-300': filters.category
                   }"
                 >
@@ -65,9 +65,9 @@
                   v-for="category in categories"
                   :key="category.slug"
                   @click="filters.category = filters.category === category.slug ? null : category.slug; categoryDropdownOpen = false"
-                  class="w-full px-4 py-2.5 rounded-xl text-sm text-left hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200 flex items-center justify-between"
+                  class="w-full px-4 py-2.5 rounded-xl text-sm text-left hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center justify-between"
                   :class="{
-                    'text-brand-gray dark:text-white bg-white/10': filters.category === category.slug,
+                    'text-brand-gray dark:text-white bg-gray-100 dark:bg-gray-700': filters.category === category.slug,
                     'text-gray-700 dark:text-gray-300': filters.category !== category.slug
                   }"
                 >
@@ -176,23 +176,21 @@
 
                   <!-- Power BTU Filter (only for air conditioners) -->
                   <div v-if="filters.category === 'air-conditioners'">
-                    <div class="flex items-center justify-between mb-3">
+                    <button
+                      @click="powerDropdownOpen = !powerDropdownOpen"
+                      class="w-full flex items-center justify-between mb-3 p-2 -mx-2 rounded-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200 cursor-pointer"
+                    >
                       <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400">{{ $t('catalog.modal.power') }}</h3>
-                      <button
-                        @click="powerDropdownOpen = !powerDropdownOpen"
-                        class="p-1.5 rounded-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200"
+                      <svg
+                        class="w-4 h-4 transition-transform duration-300 text-gray-600 dark:text-gray-400"
+                        :class="{ 'rotate-180': powerDropdownOpen }"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <svg
-                          class="w-4 h-4 transition-transform duration-300 text-gray-600 dark:text-gray-400"
-                          :class="{ 'rotate-180': powerDropdownOpen }"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
-                    </div>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
                     <Transition name="power-dropdown">
                       <div v-if="powerDropdownOpen" class="space-y-2 mt-2">
                         <label
@@ -227,23 +225,21 @@
 
                   <!-- Power KW Filter (only for boilers) -->
                   <div v-if="filters.category === 'boilers'">
-                    <div class="flex items-center justify-between mb-3">
+                    <button
+                      @click="powerKWDropdownOpen = !powerKWDropdownOpen"
+                      class="w-full flex items-center justify-between mb-3 p-2 -mx-2 rounded-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200 cursor-pointer"
+                    >
                       <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400">{{ $t('catalog.modal.power') }}</h3>
-                      <button
-                        @click="powerKWDropdownOpen = !powerKWDropdownOpen"
-                        class="p-1.5 rounded-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200"
+                      <svg
+                        class="w-4 h-4 transition-transform duration-300 text-gray-600 dark:text-gray-400"
+                        :class="{ 'rotate-180': powerKWDropdownOpen }"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <svg
-                          class="w-4 h-4 transition-transform duration-300 text-gray-600 dark:text-gray-400"
-                          :class="{ 'rotate-180': powerKWDropdownOpen }"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
-                    </div>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
                     <Transition name="power-dropdown">
                       <div v-if="powerKWDropdownOpen" class="space-y-2 mt-2">
                         <label
@@ -278,23 +274,21 @@
 
                   <!-- Size Filter (only for heat curtains) -->
                   <div v-if="filters.category === 'heat-curtains'">
-                    <div class="flex items-center justify-between mb-3">
+                    <button
+                      @click="sizeDropdownOpen = !sizeDropdownOpen"
+                      class="w-full flex items-center justify-between mb-3 p-2 -mx-2 rounded-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200 cursor-pointer"
+                    >
                       <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400">{{ $t('catalog.modal.size') }}</h3>
-                      <button
-                        @click="sizeDropdownOpen = !sizeDropdownOpen"
-                        class="p-1.5 rounded-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200"
+                      <svg
+                        class="w-4 h-4 transition-transform duration-300 text-gray-600 dark:text-gray-400"
+                        :class="{ 'rotate-180': sizeDropdownOpen }"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <svg
-                          class="w-4 h-4 transition-transform duration-300 text-gray-600 dark:text-gray-400"
-                          :class="{ 'rotate-180': sizeDropdownOpen }"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
-                    </div>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
                     <Transition name="power-dropdown">
                       <div v-if="sizeDropdownOpen" class="space-y-2 mt-2">
                         <label
@@ -329,23 +323,21 @@
 
                   <!-- Color Filter (only for heat curtains) -->
                   <div v-if="filters.category === 'heat-curtains'">
-                    <div class="flex items-center justify-between mb-3">
+                    <button
+                      @click="colorDropdownOpen = !colorDropdownOpen"
+                      class="w-full flex items-center justify-between mb-3 p-2 -mx-2 rounded-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200 cursor-pointer"
+                    >
                       <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400">{{ $t('catalog.modal.color') }}</h3>
-                      <button
-                        @click="colorDropdownOpen = !colorDropdownOpen"
-                        class="p-1.5 rounded-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-200"
+                      <svg
+                        class="w-4 h-4 transition-transform duration-300 text-gray-600 dark:text-gray-400"
+                        :class="{ 'rotate-180': colorDropdownOpen }"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <svg
-                          class="w-4 h-4 transition-transform duration-300 text-gray-600 dark:text-gray-400"
-                          :class="{ 'rotate-180': colorDropdownOpen }"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
-                    </div>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
                     <Transition name="power-dropdown">
                       <div v-if="colorDropdownOpen" class="space-y-2 mt-2">
                         <label
